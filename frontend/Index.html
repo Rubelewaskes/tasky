@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poiret+One&display=swap" rel="stylesheet">
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=wpJ3nECQ4fWtWJnR2CAUUS6BO1Bd5_2eQm1E7Y23gmxsmt1LIstUDjI0olvNdIqrE2oTXTNnMa--O7GJ7xcA91yiRZY_OuUOYRGl8gPd4GDgp8_lNVHBAsxdVgC8p58umClwRKnCgRx6RZB8PsUwlXNfYknxkLrSw6YBhAqnb-R6SgiuHD1WAsLtk5Ui94ip2Lkohbb4i9QZiC5NH0RX1EktGMA_4SFWMkEf3-N4oisGyakghTJiVoNcGegaP2JCxj7UueXOtjc4Fysx3IwdKw" charset="UTF-8"></script></head>
+<body>
+    <div class="window">
+        <div class="container">
+
+            <textarea class="text-area-b" placeholder="Название задачи"></textarea>
+
+            <div class="aut">
+                <b>Автор: </b>
+                leha.2003.27.09@mail.ru
+            </div>
+
+            <textarea id="descriprion" class="text-area-a" placeholder="Добавьте описание задачи"></textarea>
+
+            <div class="pr">
+                Процесс выполнения
+            </div>
+
+            <div class="yellow">
+            <div class="checklist">
+            </div>
+            <button class="primary-button" id="addStep">+ Добавить шаг</button>
+
+            <script src="scripts/script.js"></script>
+            </div>
+
+        </div>
+
+        <div class="right">
+            <div class="vertical-line">
+
+            </div>
+            <div class="menu">
+                <div class="pic">
+                    <img src="css/employee.svg" width="21" height="21" alt="SVG Image">
+
+                </div>
+                <div class="text">
+                    Исполнители
+                </div>
+            </div>
+            <div class="but">
+                <script src="scripts/script2.js"></script>
+                <div id="textFields">
+                </div>
+                <button class="button-secondary" id="addButton">+ Добавить</button>
+
+            </div>
+            <hr>
+
+            <div class="second">
+                <div class="pic">
+                    <img src="css/time.svg" width="21" height="21" alt="SVG Image">
+
+                </div>
+                <div class="text">
+                    Дедлайн:
+                    <div class="cal">
+                        <input type="date" style="cursor: pointer;     border: none;    
+                        font-family: 'Montserrat'; font-weight: 500; border-bottom: 1px solid #373737;
+                        font-size: 15px;
+                        " name="Date" id="davaToday">
+    
+                    </div>
+                </div>
+
+                <div class="hard">
+                    <div class="pic">
+                        <img src="css/target.svg" width="21" height="21"  alt="SVG Image">
+    
+                    </div>
+                    <div class="text">
+                        Сложность
+                    </div>
+                </div>
+                    <select id="categorySelect">
+                        <option value="категория1">Junior</option>
+                        <option value="категория2">Junior-Middle</option>
+                        <option value="категория3">Middle</option>
+                        <option value="категория4">Middle-Senior</option>
+                        <option value="категория5">Senior</option>
+                    </select>
+
+                    <div class="send">
+                        <button class="button-third" id="addButton" @click="task">Создать</button>
+        
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script>document.getElementById('davaToday').valueAsDate = new Date();</script>
+
+</body>
+</html>
+
+<script>
+    import { newTask } from 'api/task';
+    export default {
+      name: 'Task',
+      data() {
+        return {
+          userInfo: {
+            userID: 1,
+            descriprion: "" 
+          },
+        };
+      },
+      methods: {
+        async task() {
+          try {
+            await testTask(this.userInfo);
+          } catch (e) {
+            console.log(e);
+          }
+        },
+      },
+    };
+</script>
+

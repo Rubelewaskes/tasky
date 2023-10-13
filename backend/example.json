@@ -1,0 +1,66 @@
+{
+    "name": "leaderboard",
+    "data": [
+        {
+            "fio": "Бекетов Алексей Дмитриевич",
+            "team": "Security Britches",
+            "profession": "Middle-Senior",
+            "score": 1234567
+        },
+        {
+            "fio": "Столбов Михаил Евгеньевич",
+            "team": "Security Britches",
+            "profession": "Middle-Senior",
+            "score":1000000
+        },
+        {
+            "fio": "Столбов Григорий Лёша-Сосисович",
+            "team": "Security Britches",
+            "profession": "Middle-Senior",
+            "score":964000
+        },
+        {
+            "fio": "Дошанов Роберт Джабиевич",
+            "team": "Кисельки",
+            "profession": "Middle-Senior",
+            "score":777777
+        },
+        {
+            "fio": "Никитенко Андрей Владимирович",
+            "team": "Security Britches",
+            "profession": "Middle-Senior",
+            "score":776500
+        },
+        {
+            "fio": "Вологин Александр Николаевич",
+            "team": "Сигма Squad",
+            "profession": "Middle-Senior",
+            "score":750000
+        },
+        {
+            "fio": "Александрова Екатерина Викторовна",
+            "team": "YSTU Squad",
+            "profession": "Middle-Senior",
+            "score":720000
+        },
+        {
+            "fio": "Бойков Сергей Юрьевич",
+            "team": "YSTU Squad",
+            "profession": "Middle-Senior",
+            "score":680000
+        },
+        {
+            "fio": "Бахаева дарья Дмитриевна",
+            "team": "Сигма Squad",
+            "profession": "Middle-Senior",
+            "score":621000
+        },
+        {
+            "fio": "Иванов Иван Иванович",
+            "team": "YSTU Squad",
+            "profession": "Middle-Senior",
+            "score":514320
+        }
+    ],
+    "t_index": 0
+}
