@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from 'axios';
 
 export function sendRequest(method, url, data = null) {

@@ -22,7 +22,7 @@
         <div class="vertical-line"></div>
         <div class="menu">
           <div class="pic">
-            <img src="../../../css/employee.svg" width="21" height="21" alt="SVG Image" />
+            <img src="../../css/employee.svg" width="21" height="21" alt="SVG Image" />
           </div>
           <div class="text">Исполнители</div>
         </div>
@@ -36,7 +36,7 @@
 
         <div class="second">
           <div class="pic">
-            <img src="../../../css/time.svg" width="21" height="21" alt="SVG Image" />
+            <img src="../../css/time.svg" width="21" height="21" alt="SVG Image" />
           </div>
           <div class="text">
             Дедлайн:
@@ -60,7 +60,7 @@
 
           <div class="hard">
             <div class="pic">
-              <img src="../../../css/target.svg" width="21" height="21" alt="SVG Image" />
+              <img src="../../css/target.svg" width="21" height="21" alt="SVG Image" />
             </div>
             <div class="text">Сложность</div>
           </div>
@@ -114,7 +114,7 @@
   </template>
 
 <script>
-import { newTask } from '../../../api/task'
+import { newTask } from '../../api/task'
 
 export default {
   name: 'TaSk',

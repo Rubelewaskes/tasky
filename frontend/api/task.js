@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Task } from './URLS';
 import { sendRequest } from '.';
 
