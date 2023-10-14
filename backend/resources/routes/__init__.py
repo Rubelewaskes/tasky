@@ -1,5 +1,6 @@
 from resources import app
 from resources.routes import task
+from resources.routes import login
 from flask import request
 
 

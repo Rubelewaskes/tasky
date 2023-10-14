@@ -5,7 +5,7 @@
 
         <div class="aut">
           <b>Автор: </b>
-          leha.2003.27.09@mail.ru
+          {{ this.value }}
         </div>
 
         <textarea class="text-area-a" placeholder="Добавьте описание задачи" v-model="taskInfo.description"></textarea>
@@ -118,6 +118,13 @@ import { newTask } from '../../api/task'
 
 export default {
   name: 'TaSk',
+  async beforeMount () {
+    try {
+      this.value = localStorage.getItem('mail')
+    } catch (e) {
+      console.log(e)
+    }
+  },
   data () {
     return {
       taskInfo: {
@@ -128,7 +135,8 @@ export default {
         executorsID: [1],
         difficulty: '',
         points: 0
-      }
+      },
+      value: ''
     }
   },
   methods: {
@@ -141,6 +149,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style>
@@ -150,8 +159,7 @@ export default {
         box-sizing: border-box;
     }
     body{
-
-        background-image: linear-gradient(to left, #648efe, #9966ff);
+        background-image: linear-gradient(to left, #ffffff, #fff);
         box-sizing: border-box;
         font-family: 'Montserrat';
         display: flex;
