@@ -1,14 +1,14 @@
 <template>
     <div class="window">
       <div class="container">
-        <textarea class="text-area-b" placeholder="Название задачи" v-model="taskName"></textarea>
+        <textarea class="text-area-b" placeholder="Название задачи" v-model="taskInfo.name"></textarea>
 
         <div class="aut">
           <b>Автор: </b>
           leha.2003.27.09@mail.ru
         </div>
 
-        <textarea class="text-area-a" placeholder="Добавьте описание задачи" v-model="userInfo.description"></textarea>
+        <textarea class="text-area-a" placeholder="Добавьте описание задачи" v-model="taskInfo.description"></textarea>
 
         <div class="pr">
           Процесс выполнения
@@ -30,7 +30,7 @@
           <div id="textFields">
             <!-- Здесь можно использовать директивы v-for для отображения списка исполнителей -->
           </div>
-          <button class="button-secondary" id="addButton" @click="addExecutor">+ Добавить</button>
+          <button class="button-secondary" id="addButton" @click="taskInfo">+ Добавить</button>
         </div>
         <hr />
 
@@ -53,7 +53,7 @@
                 "
                 name="Date"
                 id="davaToday"
-                v-model="deadline"
+                v-model="taskInfo.endDate"
               />
             </div>
           </div>
@@ -64,12 +64,12 @@
             </div>
             <div class="text">Сложность</div>
           </div>
-          <select id="categorySelect" v-model="difficulty">
-            <option value="категория1">Junior</option>
-            <option value="категория2">Junior-Middle</option>
-            <option value="категория3">Middle</option>
-            <option value="категория4">Middle-Senior</option>
-            <option value="категория5">Senior</option>
+          <select id="categorySelect" v-model="taskInfo.difficulty">
+            <option value="Junior">Junior</option>
+            <option value="Junior-Middle">Junior-Middle</option>
+            <option value="Middle">Middle</option>
+            <option value="Middle-Senior">Middle-Senior</option>
+            <option value="Senior">Senior</option>
           </select>
         </div>
 
@@ -89,7 +89,7 @@
 
         <div class="end">
           <div class="range-slider">
-            <input class="range-slider__range" type="range" min="0" max="1000" step="100" v-model="sliderValue" />
+            <input class="range-slider__range" type="range" min="0" max="1000" step="100" v-model="taskInfo.points" />
             <input
               style="
                 margin-left: 0px;
@@ -104,7 +104,7 @@
               "
               type="text"
               id="rangeValue"
-              v-model="sliderValue"
+              v-model="taskInfo.points"
             />
           </div>
         </div>
@@ -120,16 +120,21 @@ export default {
   name: 'TaSk',
   data () {
     return {
-      userInfo: {
-        userID: 1,
-        description: ''
+      taskInfo: {
+        authorID: 1,
+        name: '',
+        description: '',
+        endDate: '',
+        executorsID: [1],
+        difficulty: '',
+        points: 0
       }
     }
   },
   methods: {
     async task () {
       try {
-        await newTask(this.userInfo)
+        await newTask(this.taskInfo)
       } catch (e) {
         console.log(e)
       }
@@ -226,11 +231,11 @@ export default {
     .yellow{
         margin-top: 13px;
         width: 415px;
-        height: 200px; /* Установите фиксированную высоту, которая вам нужна */
+        height: 200px;
         background-color: #fad468;
         border-radius: 15px;
-        overflow-y: scroll; /* Добавление всегда видимой полосы прокрутки по вертикали */
-        overflow-y: auto; /* Добавление полосы прокрутки по вертикали, если содержимое превышает заданную высоту */
+        overflow-y: scroll;
+        overflow-y: auto;
         box-shadow:4px 4px 4px rgba(0,0,0,0.06);
 
     }
@@ -273,7 +278,6 @@ export default {
         margin-top: 7px;
     }
 
-    /* Скрыть стандартные полосы прокрутки */
     .yellow::-webkit-scrollbar {
         width: 20px;
         background-color: #fad468; /* Фоновый цвет полосы прокрутки */

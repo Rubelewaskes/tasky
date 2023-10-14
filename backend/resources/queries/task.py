@@ -2,33 +2,27 @@ from resources.services import json_serializable
 from resources import DB
 
 
-async def testTask(userID, description):
+async def newTask(authorID, name, description, endDate, executorsID, difficulty, points):
     try:
-        # data = await DB.conn.fetch(
-        #     '''
-        #         select 
-        #             u.login, 
-        #             u.password, 
-        #             u.user_id,
-        #             ur.role_name
-        #         from 
-        #             tasky.user u
-        #         join tasky.role ur
-        #             on ur.role_id = u.role_id
-        #     '''
-        #     )
+        await DB.conn.fetch(
+            f'''
+                insert into tasky.task (author_user_id, task_name, task_desc, 
+                end_dttm, points, difficulty)
+                values({int(authorID)}, '{name}', '{description}',
+                TO_DATE('{endDate}', 'YYYY-MM-DD') , {int(points)}, '{difficulty}')
+                returning task_id;
+            '''
+            )
 
-        # for item in data:
-        #     if login.lower() == item['login'] and hash_pass.hash_check(hash_pass.generate_password_hash(item['password']), password):
-        #         result = json_serializable('rsp')
-        #         result.add_features('login', str(item['login']))
-        #         result.add_features('token', str(item['user_id']))
-        #         result.add_features('role', str(item['role_name']))
-        #         print('Успех')
-                
-        #         return result.data[0]	
-        print(userID, 'Успех', description)
-        return 'wrong'
+        for i in executorsID :
+            await DB.conn.fetch(
+            f'''
+                insert into tasky.executor (user_id, task_id)
+                values({int(i)}, (select max(task_id) from tasky.task));
+            '''
+            )
+        print('Всё круто')
+        return 'success'	
     
     except Exception as e:
         print('Exceprion: ', e)

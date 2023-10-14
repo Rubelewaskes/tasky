@@ -1,1 +1,1 @@
-from resources.queries.task import testTask
+from resources.queries.task import newTask
