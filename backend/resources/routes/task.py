@@ -11,7 +11,10 @@ async def task():
         await DB.connect()
 
         data = request.data.decode('utf8')
-        output = await testTask(loads(data)['userID'], loads(data)['description'])
+
+        output = await newTask(loads(data)['authorID'], loads(data)['Name'], 
+        loads(data)['description'], loads(data)['endDate'], 
+        loads(data)['userID'], loads(data)['difficulty'])
 
         await DB.close()
 

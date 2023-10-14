@@ -3,7 +3,7 @@ import Task from '../views/TaskView.vue'
 
 const routes = [
   {
-    path: '/task',
+    path: '/',
     name: 'task',
     component: Task
   }

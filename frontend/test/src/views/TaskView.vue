@@ -15,10 +15,6 @@
         </div>
 
         <div class="yellow">
-          <div class="checklist">
-            <step v-for="(step, index) in steps" :key="index" :step="step" @removeStep="removeStep(index)" />
-          </div>
-          <button class="primary-button" id="addStep" @click="addStep">+ Добавить шаг</button>
         </div>
       </div>
 
@@ -118,7 +114,7 @@
   </template>
 
 <script>
-import { testTask } from '../../../api/task'
+import { newTask } from '../../../api/task'
 
 export default {
   name: 'TaSk',
@@ -133,35 +129,13 @@ export default {
   methods: {
     async task () {
       try {
-        await testTask(this.userInfo)
+        await newTask(this.userInfo)
       } catch (e) {
         console.log(e)
       }
     }
   }
 }
-</script>
-
-<script>
-export default {
-  name: 'NewStep',
-  data() {
-    return {
-      steps: [],
-    };
-  },
-  methods: {
-    addStep() {
-      this.steps.push({
-        label: 'Новый шаг',
-        subtasks: [],
-      });
-    },
-    removeStep(index) {
-      this.steps.splice(index, 1);
-    },
-  },
-};
 </script>
 
 <style>
