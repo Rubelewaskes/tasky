@@ -1,8 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Task from '../views/TaskView.vue'
+import Main from '../views/MainView.vue'
 import Login from '../views/LoginView.vue'
-import Main from '../views/TaskS.vue'
-import Table from '../views/TableView.vue'
+import Leaders from '../views/TableLeader.vue'
+import CreateTask from '../views/CreateTaskView.vue'
+import userTask from '../views/UserTasksView.vue'
 
 const routes = [
   {
@@ -11,9 +12,9 @@ const routes = [
     component: Main
   },
   {
-    path: '/task',
+    path: '/createtask',
     name: 'task',
-    component: Task
+    component: CreateTask
   },
   {
     path: '/login',
@@ -21,9 +22,14 @@ const routes = [
     component: Login
   },
   {
-    path: '/table',
-    name: 'table',
-    component: Table
+    path: '/leaders',
+    name: 'leaders',
+    component: Leaders
+  },
+  {
+    path: '/userTasks',
+    name: 'userTasks',
+    component: userTask
   }
 ]
 

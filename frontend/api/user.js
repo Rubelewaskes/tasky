@@ -11,7 +11,18 @@ export async function toLogin(data) {
     localStorage.setItem('mail', res.data.mail);
     localStorage.setItem('id', res.data.token);
 
-    router.push('/task');
+    router.push('/userTasks');
+    
+    return res.data;
+  } catch (e) {
+    return e.response.status;
+  }
+}
+export async function getTasks(data) {
+  try {
+    const res = await sendRequest('get', Login, data);
+
+    router.push('/userTasks');
     
     return res.data;
   } catch (e) {

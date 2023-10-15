@@ -29,6 +29,5 @@ async def leaderTable():
         result.add_features('profession', str(item['profession_name']))
         result.add_features('rating', str(item['rating']))
         result.new_features_tuple()
-        
-    return json.dumps(result.data)
+    return json.dumps(result.data[:-1])
 

@@ -1,0 +1,53 @@
+body {
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+table {
+    width: 988px;
+    border-collapse: collapse;
+    margin: auto;
+    text-align: center;
+    vertical-align: center;
+}
+
+th {
+    color: white;
+    height: 68px;
+    font-size: 26px;
+}
+
+td {
+    color: #373737;
+    font-size: 17px;
+    height: 43px;
+}
+
+td:nth-child(1), td:nth-child(3), td:nth-child(5) {
+    font-weight: bold;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+thead tr:first-child {
+    background-image: linear-gradient(to left, #648efe, #9966ff);
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+
+
+tr:nth-child(even) {
+    background-color: white;
+}

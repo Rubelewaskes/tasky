@@ -1,61 +1,17 @@
-<template>
-  <body>
-    <div class="badi">
-        <div class="wind">
-            <div class="opa">
-                <div class="text-a">
-                    Авторизация
-                </div>
-                <textarea class="text-area-a" placeholder="Логин" v-model="userInfo.login"></textarea>
-                <input type="password" id="passwordField" class="text-area-a" name="password" placeholder="Пароль" v-model="userInfo.password"/>
-                <button class="btn1" id="vhod" @click="login">Войти</button>
-                <button class="btn2" id="reg">Регистрация</button>
-            </div>
-        </div>
-    </div>
-  </body>
-</template>
-
-<script>
-import { toLogin } from '../../api/user'
-
-export default {
-  name: 'LogIn',
-  data () {
-    return {
-      userInfo: {
-        login: '',
-        password: ''
-      }
-    }
-  },
-  methods: {
-    async login () {
-      try {
-        await toLogin(this.userInfo)
-      } catch (e) {
-        console.log(e)
-      }
-    }
-  }
-}
-</script>
-
-<style>
 *{
     margin:0;
     padding:0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 .badi{
-    background-image: linear-gradient(to left, #648efe, #9966ff);
+    background-image: linear-gradient(to left, #648efe, #9966ff); /*УБерешь*/
     box-sizing: border-box;
     font-family: 'Montserrat';
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; /* Для вертикального центрирования */
 }
 
 .wind{
@@ -125,4 +81,14 @@ export default {
     border: 0px;
     padding: 13px 25px;
 }
-</style>
+
+.wind {
+    height: 0;
+    opacity: 0;
+    transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.wind.opened {
+    height: 405px;
+    opacity: 1;
+}

@@ -12,7 +12,6 @@ export function sendRequest(method, url, data = null) {
   } else {
     req.data = data;
   }
-
   return axios(req);
 }
 

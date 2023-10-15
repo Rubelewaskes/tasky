@@ -5,8 +5,8 @@ from resources import app
 from resources.queries import leaderTable
 
 
-@app.post('/leaders')
-async def leaders():
+@app.get('/leader')
+async def leader():
     try:
         await DB.connect()
 

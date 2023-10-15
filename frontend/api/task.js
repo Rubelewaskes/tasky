@@ -17,4 +17,21 @@ export async function newTask(data) {
   }
 }
 
+export async function getTasks(data) {
+  try {
+    const res = await sendRequest('get', Task, data);
+    const dialog = {
+      action: '',
+      elProps: '',
+      value: false,
+    };
+
+    store.dispatch('dialog/openDialog', dialog, { root: true });
+
+    return res.data;
+  } catch (e) {
+    return e.response.status;
+  }
+}
+
 export default {};

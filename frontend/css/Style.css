@@ -1,0 +1,460 @@
+    :root {
+        --range-label-width: 15px;
+        --range-handle-size: 20px;
+        --range-track-height: 10px;
+        --range-handle-color: #2c3e50;
+        --range-track-color: #d7dcdf;
+        --range-label-color: #2c3e50;
+    }
+
+    
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box; 
+    }
+    body{
+        
+        background-image: linear-gradient(to left, #648efe, #9966ff);
+        box-sizing: border-box;
+        font-family: 'Montserrat';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Для вертикального центрирования */
+    }
+
+    .window{
+        height: 628px;
+        width: 1048px;
+        background-color: #fff;
+        text-align: center;
+        border-radius: 25px;
+    }
+
+    .container{
+        text-align: left;
+        margin-left: 38px;
+        margin-top: 33px;
+    }
+
+    .container .name{
+        font-weight: 700;
+        font-size: 48px;
+        color: #0e2f91;
+    }
+
+    .container .aut{
+        cursor:default;
+        margin-left: 15px;
+        font-weight: 500;
+        font-size: 21px;
+        color: #373737;
+    }
+
+    .container .text-area-a {
+
+        margin-top: 22px;
+        font-family: 'Montserrat';
+        width: 550px;
+        resize: none;
+        padding:15px;
+        border-radius:15px;
+        border:0;
+        box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+        height:167px;
+        background-color:#cce5ff;
+        font-size: 22px;
+        font-weight: 500;
+    }
+
+    .container .text-area-b {
+        margin-left: -15px;
+        margin-top: -15px;
+        font-family: 'Montserrat';
+        width: 550px;
+        resize: none;
+        padding:15px;
+        border-radius:15px;
+        border:0;
+        box-shadow:1px 1px 1px rgba(0,0,0,0.06);
+        height:90px;
+        font-weight: 700;
+        font-size: 48px;
+        color: #0e2f91;
+        overflow: hidden;
+
+    }
+
+    .container .pr{
+        cursor:default;
+        margin-top: 17px;
+        margin-left: 15px;
+        font-weight: 700;
+        font-size: 29px;
+        color: #373737;
+    }
+    .yellow{
+        margin-top: 13px;
+        width: 415px;
+        height: 200px; /* Установите фиксированную высоту, которая вам нужна */
+        background-color: #fad468;
+        border-radius: 15px;
+        overflow-y: scroll; /* Добавление всегда видимой полосы прокрутки по вертикали */
+        overflow-y: auto; /* Добавление полосы прокрутки по вертикали, если содержимое превышает заданную высоту */
+        box-shadow:4px 4px 4px rgba(0,0,0,0.06);
+    }
+
+    .checklist {
+    font-family: 'Montserrat';
+    padding-left: 15px;
+    padding-top: 5px;
+    }
+
+    .step {
+        margin-top: 10px;
+    }
+
+    label {
+        cursor:text;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin-left: 20px;
+    }
+
+    ul li {
+        margin-top: 7px;
+
+
+    }
+
+    button{
+        font-family: 'Montserrat';
+        font-weight: 600;
+        background-color: #dcb32a;
+        color: #fff;
+        border: none;
+        padding: 5px 7px;
+        cursor: pointer;
+        border-radius: 10px;
+        margin-left: 30px;
+        margin-top: 7px;
+    }
+
+    /* Скрыть стандартные полосы прокрутки */
+    .yellow::-webkit-scrollbar {
+        width: 20px; 
+        background-color: #fad468; /* Фоновый цвет полосы прокрутки */
+        border-radius: 10px; /* Скругленные углы для ползунка */
+        
+    }
+
+    /* Стилизация ползунка (бегунка) полосы прокрутки */
+    .yellow::-webkit-scrollbar-thumb {
+        width: 20px; 
+        background-color: #dcb32a; /* Цвет ползунка полосы прокрутки */
+        border-radius: 10px; /* Скругленные углы для ползунка */
+    }
+
+    .text-area-a::-webkit-scrollbar-thumb{
+        background-color: #799cfa; /* Цвет ползунка полосы прокрутки */
+        width: 20px;
+        border-radius: 20px; /* Скругленные углы для ползунка */
+    }
+    .text-area-a::-webkit-scrollbar {
+        width: 20px;
+        background-color: #cce5ff;; /* Фоновый цвет полосы прокрутки */
+        border-radius: 20px; /* Скругленные углы для ползунка */
+    }
+
+    .remove-icon {
+        font-weight: bold;
+        margin-left: 6px;
+        font-size: 100%;
+        color: #373737;
+        cursor: pointer;
+        padding: 0px 4px; /* Поля вокруг текста кнопки */
+    }
+
+
+    .right {
+        text-align: left;
+        margin-top: -596px;
+        margin-left: 665px;
+        height: 628px;
+        overflow: auto; /* Добавьте полосу прокрутки, если содержимое превышает заданную высоту */
+
+    }
+
+    .right::-webkit-scrollbar {
+        width:29px; 
+        background-color: transparent;
+    }
+
+    /* Стилизация ползунка (бегунка) полосы прокрутки */
+    .right::-webkit-scrollbar-thumb {
+        width: 20px; 
+        background-color: #2c3e50; /* Цвет ползунка полосы прокрутки */
+        border-radius: 20px; /* Скругленные углы для ползунка */
+    }
+
+    .vertical-line {
+        text-align: left;
+        width: 0px; /* Ширина линии */
+        height: 628px; /* Высота линии */
+        background-color: #373737; /* Цвет линии */
+        right: 0;
+    }
+
+    .vr{
+        width: 2px; /* Ширина линии */
+        height: 628px; /* Высота линии */
+        margin-top: -595px;
+        background-color: #373737; /* Цвет линии */
+        position: absolute;
+        margin-left: 664px;
+    }
+
+    .menu{
+        margin-top:-596px;
+        margin-left:28px;
+        font-weight: 700;
+        font-size:20px;
+    }
+
+    .menu .pic{
+        margin-top: 1px;
+
+    }
+
+    .menu .text{
+        vertical-align: middle;
+
+        margin-left: 28px;
+        margin-bottom: -24px;
+    }
+
+    .but{
+        margin-top: 5px;
+    }
+
+    input[type="text"] {
+        margin-left: 28px;
+        margin-bottom: 4px;
+        width: 200px;
+        background-color: #859be1; /* Цвет фона */
+        color: #fff; /* Цвет текста */
+        border: none; /* Убрать границу */
+        padding: 7px 7px; /* Поля вокруг текста */
+        border-radius: 10px; /* Скруглить углы */
+    }
+
+    .but ::placeholder {
+        color: white;
+        font-family: 'Montserrat';  
+    }
+
+    .text-area-b::placeholder {
+        color: #0e2f91;
+    }
+
+    .text-area-a::placeholder {
+        color: #373737;
+    }
+
+    .button-secondary{
+        background-color:#5382e4;
+        margin-top: 0px;
+        border-radius: 10px;
+        margin-left:28px;
+    }
+
+
+
+    .remove-emp {
+        vertical-align: middle;
+        margin-left: 5px;
+        
+        font-weight: bold;
+        color: #859be1;
+        border: 2px solid #859be1; /* Добавляем границу, указываем цвет */
+        border-radius: 5px; /* Для скругления углов */
+        padding: 4px 8px; /* Поля вокруг текста кнопки */
+        cursor: pointer;
+    }
+
+    hr {
+        border: 0; /* Удаляем стандартную границу линии */
+        margin-top: 18px;
+        margin-left: 28px;
+        height: 1px; /* Высота линии */
+        width: 300px;
+        background-color: #373737; /* Цвет линии */
+        
+    }   
+
+    .second{
+        margin-top: 20px;
+        margin-left:28px;
+        font-weight: 700;
+        font-size:20px;
+    }
+
+    .pic{
+            margin-top: 1px;
+            
+    }
+
+    .text{
+        vertical-align: middle;
+        font-size: 20px;
+        margin-left: 28px;
+        margin-bottom: -24px;
+        cursor:default;
+
+    }
+
+    .cal{
+        margin-left:115px;
+        margin-top: -26px;
+    }
+
+    .hard{
+        cursor:default;
+        margin-top: 10px;
+    }
+
+    select {
+        padding: 5px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        background-color: #fe9901;
+        cursor:pointer;
+        width: 150px;
+
+    }
+
+    .button-third{
+
+        background-color:#92d36e;
+        margin-top: 18px;
+        padding: 8px 30px;
+        border-radius: 10px;
+        font-size: 27px;
+        font-weight: 600;
+    }
+
+    .span{
+        font-weight: 300;
+    }
+
+
+    #fileToUpload {
+
+        display: none;
+    }
+
+    .final{
+        margin-top: -54px;
+        margin-left:200px;
+        font-weight: 700;
+        font-size:20px;
+    }
+
+    .input {
+        margin-top: 200px;
+    }
+
+    .file-upload-button {
+        font-family: 'Montserrat';
+        font-weight: 600;
+        background-color:#5382e4;
+        border-radius: 10px;
+        color: #fff;
+        padding: 5px 7px;
+        font-size:14px;
+        cursor:pointer;
+        margin-left: 0;
+    }
+
+    .range-slider {
+
+    margin-top: 15px;
+    width: 100%;
+    }
+
+    .range-slider__range {
+    -webkit-appearance: none;
+    width: calc(100% - (var(--range-label-width) + 13px));
+    height: var(--range-track-height);
+    border-radius: 5px;
+    background: var(--range-track-color);
+    outline: none;
+    padding: 0;
+    margin: 0;
+    }
+
+    .range-slider__range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--range-handle-size);
+    height: var(--range-handle-size);
+    border-radius: 50%;
+    background: var(--range-handle-color);
+    cursor: pointer;
+    }
+
+    .end{
+        margin-left: 28px;
+        margin-top: 30px;
+    }
+
+    .ray{
+        text-align: center;
+        margin-left: -28px;
+        font-weight: 700;
+        font-size: 24px;
+        cursor:default;
+    }
+
+    .but_send{
+        margin-left: -30px;
+        text-align: center;
+    }
+
+
+    .metki{
+        margin-left: 28px;
+        cursor:default;
+        margin-top: 10px;
+    }
+
+    .metki .text{
+        font-weight: 700;
+
+    }
+
+    .text-field-metki{
+        margin-left: -28px;
+        width: auto;
+        display: inline-block; /* Располагаем метки в ряд */
+        margin-right: 10px; /* Расстояние между метками */
+           
+    }
+    .met_list{
+        margin-top: 5px;
+    }
+
+    input.label-input {
+        /* Ваши специфические стили здесь */
+        width: 50px; /* Пример изменения ширины на 50 пикселей */
+    }
+    

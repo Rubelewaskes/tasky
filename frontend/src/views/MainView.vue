@@ -1,15 +1,26 @@
 <template>
-  <router-link to='/login'>
-  <v-btn>Авторизация</v-btn>
-  </router-link>
-  <body>
-    <header>
+  <body class="b">
+    <div class="bad">
+      <div class="wind">
+          <div class="text-a">
+              Авторизация
+          </div>
+          <textarea class="text-area-a" placeholder="Логин" v-model="userInfo.login"></textarea>
+          <input type="password" id="passwordField" class="text-area-a" name="password" placeholder="Пароль" v-model="userInfo.password"/>
+          <button class="btn1" id="vhod" @click="login">Войти</button>
+          <button class="btn2" id="reg">Регистрация</button>
+        </div>
+        <div class="overlay"></div>
+    </div>
+    <header class='h'>
       <div class="headercontainer">
         <p class="logo">{{ name }}</p>
         <div class="lrbuttons">
-          <div class="loginbutton">
-            <p style="margin-top: 10px">{{ login }}</p>
-          </div>
+            <div class="loginbutton">
+              <v-btn id="showAuthButton">
+                <p style="margin-top: 10px">{{ goIn }}</p>
+              </v-btn>
+            </div>
           <div class="regbutton">
             <p style="margin-top: 10px">{{ reg }}</p>
           </div>
@@ -40,11 +51,17 @@
 </template>
 
 <script>
+import { toLogin } from '../../api/user'
+
 export default {
   data () {
     return {
+      userInfo: {
+        login: '',
+        password: ''
+      },
       name: 'TASKY',
-      login: 'Вход',
+      goIn: 'Вход',
       reg: 'Регистрация',
       discription: 'Мы предлагаем новый взгляд на работу в команде.',
       trybutton: 'Попробовать',
@@ -52,21 +69,85 @@ export default {
       subdiscription:
         'Создавайте команды, работайте, соревнуйтесь, обучайтесь вместе!'
     }
+  },
+  methods: {
+    async login () {
+      try {
+        await toLogin(this.userInfo)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  },
+  mounted () {
+    document.getElementById('showAuthButton').addEventListener('click', function () {
+      const wind = document.querySelector('.wind')
+      const overlay = document.querySelector('.overlay')
+      wind.classList.toggle('opened')
+      overlay.classList.toggle('active')
+
+      if (overlay.classList.contains('active')) {
+        overlay.addEventListener('click', function (event) {
+          if (event.target === overlay) {
+            wind.classList.remove('opened')
+            overlay.classList.remove('active')
+          }
+        })
+      }
+    })
   }
 }
+
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Sarina&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poiret+One&display=swap");
 
-body {
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.bad {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.wind {
+    margin-top: 40%;
+    position: fixed;
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.7s;
+}
+
+.opened {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.b {
   font-family: "Montserrat", sans-serif;
   color: #1b1b1b;
   margin: 0;
   padding: 0;
 }
 
-header {
+.h {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -98,6 +179,7 @@ header .headercontainer .lrbuttons {
 }
 
 header .headercontainer .lrbuttons .loginbutton {
+  cursor: pointer;
   float: left;
   width: 100px;
   height: 40px;
