@@ -57,3 +57,6 @@ $ npm install --force
 
 $ npm run serve
 ```
+
+## DataBase
+> **Для полноценной работы программы рекомендуется создать базу данных PostgreSQL, все запросы приведены в backend/database/createDB.sql**
