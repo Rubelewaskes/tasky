@@ -9,7 +9,7 @@ create table tasky.profession(
 
 create table tasky.role(
 	role_id int primary key generated always as identity,
-	name varchar(60) not null,
+	role_name varchar(60) not null,
 	sysname varchar(60) not null
 );
 
@@ -47,7 +47,7 @@ create table tasky.note (
 );
 
 create table tasky.task_status(
-	task_status_id int primary key,
+	task_status_id int primary key generated always as identity,
 	task_status_name varchar (30)
 );
 
@@ -63,7 +63,7 @@ create table tasky.task (
 	end_dttm timestamp not null,
 	points int null,
 	files varchar (300) null,
-	dificulty varchar (30) null,
+	difficulty varchar (30) null,
 	author_user_id int not null,
 	foreign key (author_user_id) references tasky.user(user_id),
 	task_status_id int not null default 1,
@@ -113,15 +113,15 @@ insert into tasky.task_status(task_status_name) values ('Выдано');
 insert into tasky.task_status(task_status_name) values ('Выполнено');
 insert into tasky.task_status(task_status_name) values ('Просрочено');
 insert into tasky.task (task_name, task_desc, end_dttm, points, author_user_id, task_status_id, difficulty)
-values ('Задача 1', 'Описание 1', 2023-10-15, 400, 1, 2, 'Senior');
+values ('Задача 1', 'Описание 1', '2023-10-15', 400, 1, 2, 'Senior');
 insert into tasky.task (task_name, task_desc, end_dttm, points, author_user_id, task_status_id, difficulty)
-values ('Задача 2', 'Описание 2', 2023-10-18, 200, 1, 1, 'Middle');
+values ('Задача 2', 'Описание 2', '2023-10-18', 200, 1, 1, 'Middle');
 insert into tasky.task (task_name, task_desc, end_dttm, points, author_user_id, task_status_id, difficulty)
-values ('Задача 3', 'Описание 3', 2023-10-23, 100, 1, 3, 'Middle');
+values ('Задача 3', 'Описание 3', '2023-10-23', 100, 1, 3, 'Middle');
 insert into tasky.task (task_name, task_desc, end_dttm, points, author_user_id, task_status_id, difficulty)
-values ('Задача 4', 'Описание 4', 2023-10-16, 200, 1, 1, 'Middle-Senior');
+values ('Задача 4', 'Описание 4', '2023-10-16', 200, 1, 1, 'Middle-Senior');
 insert into tasky.task (task_name, task_desc, end_dttm, points, author_user_id, task_status_id, difficulty)
-values ('Задача 5', 'Описание 5', 2023-10-17, 100, 1, 2, 'Junior');
+values ('Задача 5', 'Описание 5', '2023-10-17', 100, 1, 2, 'Junior');
 insert into tasky.executor(user_id, task_id) values (1, 2);
 insert into tasky.executor(user_id, task_id) values (1, 3);
 insert into tasky.executor(user_id, task_id) values (2, 5);

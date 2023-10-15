@@ -31,7 +31,7 @@
       <div id="body" class="container">
         <div class="firstlook">
           <h1 class="discription">{{ discription }}</h1>
-          <img src="Images/2_1.png" class="demo" />
+          <img src="../../img/1.png" class="demo" />
           <div class="trybutton">
             <p style="margin-top: 10px">{{ trybutton }}</p>
           </div>

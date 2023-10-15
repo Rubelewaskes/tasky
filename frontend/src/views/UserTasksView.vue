@@ -4,7 +4,7 @@
     <nav class="navbar">
       <div class="logo_item">
         <i class="bx bx-menu" id="sidebarOpen"></i>
-        <img src="images/logo.png" alt="" /><i>SecurityBritches</i>
+        <img src="../../img/Vector.png" alt="" /><i>SecurityBritches</i>
       </div>
 
       <div class="search_bar">
@@ -15,7 +15,7 @@
         <i class="bi bi-grid"></i>
         <i class="bx bx-sun" id="darkLight"></i>
         <i class="bx bx-bell"></i>
-        <img src="images/profile.jpg" alt="" class="profile" />
+        <img src="../../img/BodyIcon.png" alt="" class="profile" />
       </div>
     </nav>
 
