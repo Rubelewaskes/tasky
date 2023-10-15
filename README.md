@@ -1,4 +1,4 @@
-# UFOffice
+# Tasky
 
 ## Backend
 
@@ -15,7 +15,11 @@ $ python -m venv env
 
 $ env/scripts/activate
 
+$ powershell
+
 $ New-Item -ItemType file -Path './resources/settings.py'
+
+$ exit
 
 $ pip install requirements.txt
 ```
@@ -37,22 +41,14 @@ $ python app.py
 
 ### Настройка (терминал 2)
 
->  **Необходим предустановленный [Node JS](https://nodejs.org/en/)**
+>  **Необходим предустановленный [Node JS]**
 
 ```ps
 $ cd frontend
 
 $ npm install vue
 
-$ npm i bootstrap
-
-$ npm i vue-router
-
-$ npm install axios
-
-$ npm i @popperjs/core
-
-$ npm i vuex
+$ npm install --force
 ```
 
 ### Запуск
