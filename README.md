@@ -21,7 +21,7 @@ $ New-Item -ItemType file -Path './resources/settings.py'
 
 $ exit
 
-$ pip install requirements.txt
+$ pip install -r requirements.txt
 ```
 
 #### Содержимое settings.py
